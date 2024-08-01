@@ -18,11 +18,11 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: 'Your awesome title'
-description: 'Your awesome description'
+title: 'Global open research commons'
+description: 'Global open research commons working group'
 
 baseurl: '' # the subpath of your site, e.g. /blog
-absoluteurl: 'https://juanmanitta.github.io/jekyll-multilanguage-template/'
+absoluteurl: 'https://lareferencia.github.io/gorc/'
 url: '' # the base hostname & protocol for your site, e.g. http://example.com
 
 email:  youremail@email.com
