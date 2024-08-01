@@ -1,0 +1,47 @@
+{%- for language in snippets.languages %}
+  {%- if language[1].slug != page.language %}
+    {%- if page.layout == 'page' %}
+      {%- assign navigation_pages = site.pages
+        | where: 'language_reference', page.language_reference
+        | where: 'language', language[1].slug %}
+      {%- if navigation_pages.size == 1 %}
+        {%- for navigation_page in navigation_pages %}
+          {%- assign url = site.baseurl | append: navigation_page.url %}
+        {%- endfor %}
+      {%- else %}
+        {%- assign navigation_pages = site.pages
+          | where: 'language_reference', site.fallback_page
+          | where: 'language', language[1].slug %}
+        {%- for navigation_page in navigation_pages %}
+          {%- assign url = site.baseurl | append: navigation_page.url %}
+        {%- endfor %}
+      {%- endif %}
+
+    {%- elsif page.layout == 'post' %}
+      {%- assign navigation_posts = site.posts
+        | where: 'language_reference', page.language_reference
+        | where: 'language', language[1].slug %}
+      {%- if navigation_posts.size == 1 %}
+        {%- for navigation_post in navigation_posts %}
+          {%- assign url = navigation_post.url %}
+        {%- endfor %}
+      {%- else %}
+        {%- assign navigation_pages = site.pages
+          | where: 'language_reference', site.fallback_page
+          | where: 'language', language[1].slug %}
+        {%- for navigation_page in navigation_pages %}
+          {%- assign url = site.baseurl | append: navigation_page.url %}
+        {%- endfor %}
+      {%- endif %}
+
+    {%- else %}
+      {%- assign navigation_pages = site.pages
+        | where: 'language_reference', site.fallback_page
+        | where: 'language', language[1].slug %}
+      {%- for navigation_page in navigation_pages %}
+        {%- assign url = site.baseurl | append: navigation_page.url %}
+      {%- endfor %}
+    {%- endif %}
+    <a style="font-size: 18px; font-weight: 500;" href="{{ url }}">{{ language[1].value }}</a>
+  {%- endif %}
+{%- endfor %}

@@ -1,0 +1,20 @@
+languages:
+  en:
+    value: en
+    slug: en
+  es:
+    value: es
+    slug: es
+  pt:
+    value: pt
+    slug: pt
+  
+  back:
+    en: Back to the top
+    es: Volver al principio
+    pt: Voltar ao topo
+
+  top:
+    en: Top
+    es: Arriba
+    pt: Topo

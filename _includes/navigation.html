@@ -1,0 +1,12 @@
+{%- assign navigation_pages = site.pages
+    | where: 'layout', 'page'
+    | where: 'language', page.language
+    | where: 'published', true
+    | sort: 'order' %}
+  {%- for navigation_page in navigation_pages %}
+    <a class="page-link" href="{{ site.baseurl }}{{ navigation_page.url }}">{{ navigation_page.title }}</a>
+  {%- endfor %}
+
+  <span style="margin-right: 1rem;">|</span> {% include language-switch.html %}
+
+

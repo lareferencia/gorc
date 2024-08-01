@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="{{ page.language }}">
+
+  {%- assign snippets = site.data.snippets %}
+
+  <head>
+    {% include head.html %}
+    {% include localizations.html %}
+  </head>
+
+  <body id="{{ snippets.top[page.language] | slugify: 'latin' }}">
+
+    {% include header.html %}
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div style="display: flex; gap: 6px; justify-content: end;">
+        </div>
+        {{ content }}
+      </div>
+    </main>
+
+    {% include footer.html %}
+
+  </body>
+
+</html>
+
